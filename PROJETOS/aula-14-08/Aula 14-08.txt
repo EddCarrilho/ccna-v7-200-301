@@ -1,0 +1,78 @@
+Aula 4 14-08-2023
+==========================================================================================================================================
+Modelo OSI
+
+O Modelo OSI é um modelo de rede de computador referência da ISO dividido em camadas de funções, criado em 1971 e formalizado em 1983, com objetivo de ser um padrão, para protocolos de comunicação entre os mais diversos sistemas em uma rede local, garantindo a comunicação entre dois sistemas computacionais.
+
+Memória volátil e não volátil
+RAM é a memória volátil, o que significa que as informações temporariamente armazenadas no módulo são apagadas quando você reinicia ou desliga o computador. Como as informações são armazenadas eletricamente em transistores, quando não há corrente elétrica, os dados desaparecem.
+==========================================================================================================================================
+Comandos CISCO 2960
+
+enable (# significa aumentar nivel de privilégio ou modo execução)
+disable (para desabilitar modo execução)
+==========================================================================================================================================
+Configuração de data e hora
+
+enable
+    clock set 141800 14 August 2023
+==========================================================================================================================================
+Modo de configuração global
+
+enable
+    configure terminal
+==========================================================================================================================================
+Configuração hostname (Nome padrão CISCO Switch) ((Pesquisar sobre layers e OSI))
+
+hostname sw-l2-2960-1 
+
+(sw switch    l2 layer 2    2960 model )
+==========================================================================================================================================
+Ativação do log (Para facilitar manutenção)
+
+service timestamps log datetime msec
+Facilita para achar erros, o software vai notificar o que aconteceu e quando baseado em milisegundos
+==========================================================================================================================================
+#banner motd #AVISOacesso autorizado somente para funcionarios#
+
+uma placa de aviso para notificar que o acesso é só autorizado para funcionários para evitar problemas legais
+==========================================================================================================================================
+Configuração de senha para quando alguém for entrar em enable
+
+enable secret senha
+==========================================================================================================================================
+Para sair de do privilégio de volta pro anterior
+
+end
+==========================================================================================================================================
+Salvar configuração atual como padrão modem CISCO
+
+copy running-config  startup-config
+(apertar enter 2 vezes)
+==========================================================================================================================================
+Para sair
+
+disable (sair do modo enable)
+exit
+==========================================================================================================================================
+Salvar
+
+write
+==========================================================================================================================================
+Documentação do procedimento
+enable
+    clock set 141800 14 August 2023  
+    configure terminal
+        hostname sw-l2-2960-1
+        service password-encryption  
+        service timestamps log datetime msec  
+        no ip domain-lookup
+        banner motd #AVISOacesso somente para funcionarios#
+        enable secret 123@senac
+        end
+    copy running-config startup-config
+    disable
+    exit
+enable
+    configure terminal
+        username senac secret 123@senac
