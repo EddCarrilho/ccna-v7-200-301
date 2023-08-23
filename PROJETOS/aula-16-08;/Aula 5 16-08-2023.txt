@@ -1,0 +1,48 @@
+Aula 5 16-08-2023
+------------------------------------------------------------------------------------------------------------------------------------------
+IP Static: Usado para quando você quer controle total da rede onde outros não podem modificar seu IP
+------------------------------------------------------------------------------------------------------------------------------------------
+Ethernet: 10 Mbps
+Ethernet é uma família de tecnologias de rede de computadores com fio comumente usadas em redes de área local, redes de área 
+metropolitana e redes de longa distância.
+
+Fast Ethernet: 100 Mbps
+Em redes de computadores, as camadas físicas Fast Ethernet transportam tráfego na taxa nominal de 100 Mbit/s. 
+A velocidade Ethernet anterior era de 10 Mbit/s. Das camadas físicas Fast Ethernet, 100BASE-TX é de longe a mais comum.
+
+Gigabit Ethernet: 1000Gbps
+Gigabit Ethernet é o termo que descreve várias tecnologias para transmissão de quadros em uma rede na velocidade de 1 Gigabit por segundo, 
+definido no padrão IEEE 802.3-2005. É possível encontrar redes Gigabit Ethernet no mercado usando concentrador, 
+mas pela norma a rede só pode ser usada através de comutador.
+
+SSH:
+Secure Shell é um protocolo de rede criptográfico para operação de serviços de rede de forma segura sobre uma rede insegura. 
+O melhor exemplo de aplicação conhecido é para login remoto de utilizadores a sistemas de computadores. 
+------------------------------------------------------------------------------------------------------------------------------------------
+enable
+    show running-config (testar o sistema pra saber se está tudo funcionando corretamente)
+configure terminal
+    ip default-gateway 192.168.1.254
+        interface vlan 1
+        description Interface de SVI
+        ip address 192.168.1.250 255.255.255.0  
+        no shutdown
+        end
+    write
+    show ip interface brief
+
+
+enable
+    configure terminal
+        ip domain-name senac.intra
+        crypto key generate rsa general-keys modulus 1024
+        ip ssh version 2
+        ip ssh authentication-retries 2
+        line vty 0 4
+            transport input ssh 
+            end
+    write
+
+
+    ssh -l senac 192.168.1.250 (para entrar no switch 
+    pelo pc de funcionários)
