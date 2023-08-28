@@ -23,7 +23,7 @@ no ipv6 cef
 !
 !
 username admin privilege 15 secret 5 $1$mERr$5uIiE6DlY6ZHT4J/vh6Cn.
-username camila password 7 08701E1D290A00191308
+username eduardo password 7 08701E1D290A00191308
 username senac secret 5 $1$mERr$3O.pM7PScAETpkhlqaEiE.
 !
 !
